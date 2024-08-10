@@ -21,7 +21,7 @@ const RouterObject = createBrowserRouter(
     element: <Layout>{router.element}</Layout>,
   })),
   {
-    basename: "/three-fiber/",
+    basename: "/three-fiber",
   }
 );
 
