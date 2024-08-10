@@ -1,0 +1,53 @@
+body {
+  margin: initial;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.three {
+  position: fixed;
+  top: 0;
+  left: 220px;
+  width: calc(100% - 220px);
+  height: 100%;
+  z-index: 500;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% - 220px);
+  height: 100%;
+  margin-left: auto;
+}
+
+/* Side Navigation */
+
+.side-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100%;
+  background-color: #404040;
+  z-index: 900;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 120px;
+  }
+
+  a {
+    text-decoration: initial;
+    color: #f8f8f8;
+    cursor: pointer;
+  }
+}
