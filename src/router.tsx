@@ -19,7 +19,10 @@ const RouterObject = createBrowserRouter(
   routerInfo.map((router) => ({
     path: router.path,
     element: <Layout>{router.element}</Layout>,
-  }))
+  })),
+  {
+    basename: "/three-fiber/",
+  }
 );
 
 export default RouterObject;
