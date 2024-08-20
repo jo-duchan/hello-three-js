@@ -7,11 +7,11 @@ function Object3D(): JSX.Element {
   const mesh = useRef<Mesh>(null!);
   const textureMap = useLoader(
     TextureLoader,
-    "public/assets/common/worldColour.5400x2700.jpg"
+    "assets/common/worldColour.5400x2700.jpg"
   );
   const srtmMap = useLoader(
     TextureLoader,
-    "public/assets/common/srtm_ramp2.world.5400x2700.jpg"
+    "assets/common/srtm_ramp2.world.5400x2700.jpg"
   );
 
   return (
