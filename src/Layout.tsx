@@ -9,9 +9,9 @@ function SideNavigation() {
   return (
     <div className="side-container">
       <ul>
-        {Object.entries(paths).map(([key, path]) => (
-          <Link key={key} to={path}>
-            {key}
+        {Object.entries(paths).map(([key, value]) => (
+          <Link key={key} to={value.path}>
+            {value.label}
           </Link>
         ))}
       </ul>
