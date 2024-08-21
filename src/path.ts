@@ -11,6 +11,10 @@ const paths = {
     path: "/camera",
     label: "Camera",
   },
+  light: {
+    path: "/light",
+    label: "Light",
+  },
 };
 
 export default paths;

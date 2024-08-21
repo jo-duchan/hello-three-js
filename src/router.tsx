@@ -4,6 +4,7 @@ import Layout from "./Layout";
 import RootPage from "@/root/Page";
 import PrimerPage from "@/primer/Page";
 import CameraPage from "@/camera/Page";
+import LightPage from "@/light/Page";
 
 const routerInfo = [
   {
@@ -18,6 +19,10 @@ const routerInfo = [
     path: paths.camera.path,
     element: <CameraPage />,
   },
+  {
+    path: paths.light.path,
+    element: <LightPage />,
+  },
 ];
 
 const RouterObject = createBrowserRouter(
@@ -26,7 +31,7 @@ const RouterObject = createBrowserRouter(
     element: <Layout>{router.element}</Layout>,
   })),
   {
-    basename: "/three-fiber/",
+    basename: "/hello-three.js/",
   }
 );
 
