@@ -31,7 +31,7 @@ const RouterObject = createBrowserRouter(
     element: <Layout>{router.element}</Layout>,
   })),
   {
-    basename: "/hello-three.js/",
+    basename: "/hello-three-js/",
   }
 );
 
