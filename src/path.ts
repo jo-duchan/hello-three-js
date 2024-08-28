@@ -15,6 +15,10 @@ const paths = {
     path: "/light",
     label: "Light",
   },
+  geometry: {
+    path: "/geometry",
+    label: "Geometry",
+  },
 };
 
 export default paths;

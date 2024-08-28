@@ -5,6 +5,7 @@ import RootPage from "@/root/Page";
 import PrimerPage from "@/primer/Page";
 import CameraPage from "@/camera/Page";
 import LightPage from "@/light/Page";
+import GeometryPage from "@/geometry/Page";
 
 const routerInfo = [
   {
@@ -22,6 +23,10 @@ const routerInfo = [
   {
     path: paths.light.path,
     element: <LightPage />,
+  },
+  {
+    path: paths.geometry.path,
+    element: <GeometryPage />,
   },
 ];
 
