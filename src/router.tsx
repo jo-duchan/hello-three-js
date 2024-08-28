@@ -6,6 +6,7 @@ import PrimerPage from "@/primer/Page";
 import CameraPage from "@/camera/Page";
 import LightPage from "@/light/Page";
 import GeometryPage from "@/geometry/Page";
+import MaterialPage from "@/material/Page";
 
 const routerInfo = [
   {
@@ -27,6 +28,10 @@ const routerInfo = [
   {
     path: paths.geometry.path,
     element: <GeometryPage />,
+  },
+  {
+    path: paths.material.path,
+    element: <MaterialPage />,
   },
 ];
 
