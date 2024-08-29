@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 import paths from "./path";
 import Layout from "./Layout";
 import RootPage from "@/root/Page";
@@ -35,14 +35,11 @@ const routerInfo = [
   },
 ];
 
-const RouterObject = createBrowserRouter(
+const RouterObject = createHashRouter(
   routerInfo.map((router) => ({
     path: router.path,
     element: <Layout>{router.element}</Layout>,
-  })),
-  {
-    basename: "/hello-three-js/",
-  }
+  }))
 );
 
 export default RouterObject;
