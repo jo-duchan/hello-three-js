@@ -8,7 +8,7 @@ import Plane from "./components/Plane";
 
 export default function GeometryPage() {
   return (
-    <Canvas className="three">
+    <Canvas>
       <ambientLight color={0x444444} intensity={5} />
       <directionalLight castShadow intensity={10} position={[0, 0, 3]} />
       <Camera />

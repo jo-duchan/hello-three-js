@@ -5,7 +5,7 @@ import Earth from "./components/Object3D";
 
 export default function CameraPage() {
   return (
-    <Canvas className="three">
+    <Canvas>
       <ambientLight color={0x444444} intensity={5} />
       <directionalLight castShadow intensity={10} position={[0, 0, 3]} />
       <Camera />

@@ -9,7 +9,7 @@ import Plane from "./components/Plane";
 
 export default function MaterialPage() {
   return (
-    <Canvas className="three">
+    <Canvas>
       <ambientLight color={0x444444} intensity={5} />
       <directionalLight castShadow intensity={2} position={[0, 3, 3]} />
       <Camera />

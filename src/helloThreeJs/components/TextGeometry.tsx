@@ -41,7 +41,7 @@ function BoxModel(): JSX.Element {
   });
 
   return (
-    <Box ref={mesh} position={[-1, 5, 0]}>
+    <Box ref={mesh} position={[0, 5, 0]}>
       {textGeometry && <primitive object={textGeometry} />}
       <meshStandardMaterial color={0xffffff} metalness={0.8} roughness={0.4} />
     </Box>

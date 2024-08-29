@@ -5,7 +5,7 @@ import TextModal from "./components/TextGeometry";
 
 export default function HelloThreeJsPage() {
   return (
-    <Canvas className="three">
+    <Canvas>
       <ambientLight color={0xffffff} intensity={0.3} />
       <directionalLight
         color={0xffffff}

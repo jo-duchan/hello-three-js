@@ -7,7 +7,7 @@ import Light from "./components/Light";
 
 export default function LightPage() {
   return (
-    <Canvas className="three">
+    <Canvas>
       <Light />
       <Camera />
       <Earth />

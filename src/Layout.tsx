@@ -23,7 +23,7 @@ function Layout({ children }: Props) {
   return (
     <>
       <SideNavigation />
-      {children}
+      <div className="three-wrapper">{children}</div>
     </>
   );
 }
