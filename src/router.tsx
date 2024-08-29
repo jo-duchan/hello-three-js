@@ -2,7 +2,7 @@ import { createHashRouter } from "react-router-dom";
 import paths from "./path";
 import Layout from "./Layout";
 import RootPage from "@/root/Page";
-import PrimerPage from "@/primer/Page";
+import HelloThreeJsPage from "@/helloThreeJs/Page";
 import CameraPage from "@/camera/Page";
 import LightPage from "@/light/Page";
 import GeometryPage from "@/geometry/Page";
@@ -14,8 +14,8 @@ const routerInfo = [
     element: <RootPage />,
   },
   {
-    path: paths.primer.path,
-    element: <PrimerPage />,
+    path: paths.helloThreeJs.path,
+    element: <HelloThreeJsPage />,
   },
   {
     path: paths.camera.path,

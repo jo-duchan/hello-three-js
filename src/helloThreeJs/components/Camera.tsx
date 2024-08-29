@@ -10,7 +10,7 @@ function Camera(): JSX.Element {
       aspect={innerWidth / innerHeight}
       near={0.1}
       far={1000}
-      position={[0, 0, 5]}
+      position={[0, 8, 10]}
     />
   );
 }

@@ -3,8 +3,8 @@ const paths = {
     path: "/",
     label: "Introduction",
   },
-  primer: {
-    path: "/primer",
+  helloThreeJs: {
+    path: "/helloThreeJs",
     label: "Hello Three.js",
   },
   camera: {
