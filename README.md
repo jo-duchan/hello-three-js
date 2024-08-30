@@ -1,5 +1,13 @@
 # Hello Three.js
 
+### Overview
+
+저는 3차원 컴퓨터 그래픽스에 대한 전문 지식은 없지만, 몇 가지 계기를 통해 Three.js에 관심을 갖게 되어 취미로 공부를 시작하게 되었습니다.  
+이 저장소는 그룹 스터디를 통해 학습한 Three.js 관련 내용을 공유하고 정리하는 공간입니다.  
+이론적인 내용을 Three.js를 기반으로 학습하며, 이를 React Three Fiber를 이용해 실제 코드로 구현하고 있습니다.
+
+### Live Demo
+
 [데모 사이트 링크](https://jo-duchan.github.io/hello-three-js/)
 
 ### Chapter
