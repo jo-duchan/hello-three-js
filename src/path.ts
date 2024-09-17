@@ -23,6 +23,10 @@ const paths = {
     path: "/material",
     label: "Material",
   },
+  solarSystem: {
+    path: "/solarSystem",
+    label: "SolarSystem",
+  },
 };
 
 export default paths;
