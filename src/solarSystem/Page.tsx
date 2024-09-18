@@ -2,8 +2,11 @@ import { useRef } from "react";
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { useControls } from "leva";
 import { SOLAR_SYSTEM } from "./constants/solarSystemData";
+import { initialCamera } from "./constants/cameraData";
 import PlanetOrbit from "./components/PlanetOrbit";
+import CameraController from "./components/CameraController";
 import Light from "./components/Light";
 import Sun from "./components/Sun";
 import {
@@ -17,6 +20,14 @@ import {
   Neptune,
 } from "./components/PlanetBase";
 
+export type PlanetRef = React.RefObject<
+  THREE.Mesh<
+    THREE.BufferGeometry<THREE.NormalBufferAttributes>,
+    THREE.Material | THREE.Material[],
+    THREE.Object3DEventMap
+  >
+>;
+
 export default function SolarSystemPage() {
   const mercuryRef = useRef<THREE.Mesh>(null);
   const venusRef = useRef<THREE.Mesh>(null);
@@ -27,17 +38,37 @@ export default function SolarSystemPage() {
   const uranusRef = useRef<THREE.Mesh>(null);
   const neptuneRef = useRef<THREE.Mesh>(null);
 
+  const planetView = useControls("planetView", {
+    active: false,
+    planetView: {
+      options: {
+        mercury: mercuryRef,
+        venus: venusRef,
+        earth: earthRef,
+        mars: marsRef,
+        jupiter: jupiterRef,
+        saturn: saturnRef,
+        uranus: uranusRef,
+        neptune: neptuneRef,
+      },
+    },
+  });
+
   return (
     <Canvas style={{ background: "#101010" }}>
       <PerspectiveCamera
         makeDefault
-        position={[0, 50, 500]}
-        fov={50}
-        near={0.1}
-        far={12000}
+        position={[
+          initialCamera.position.x,
+          initialCamera.position.y,
+          initialCamera.position.z,
+        ]}
+        fov={initialCamera.for}
+        near={initialCamera.near}
+        far={initialCamera.far}
       />
       <OrbitControls enableZoom={true} />
-      <axesHelper args={[12000]} position={[0, 0, 0]} />
+      <axesHelper args={[initialCamera.far]} position={[0, 0, 0]} />
       <Light />
       <PlanetOrbit
         mercury={mercuryRef}
@@ -49,6 +80,9 @@ export default function SolarSystemPage() {
         uranus={uranusRef}
         neptune={neptuneRef}
       />
+      {planetView.active && (
+        <CameraController planetRef={planetView.planetView} />
+      )}
       <Sun>
         <Mercury
           ref={mercuryRef}
@@ -66,7 +100,7 @@ export default function SolarSystemPage() {
           ref={earthRef}
           position={[SOLAR_SYSTEM.earth.orbit.a, 0, 0]}
           radius={SOLAR_SYSTEM.earth.radius}
-          color="blue"
+          color="dodgerblue"
         ></Earth>
         <Mars
           ref={marsRef}

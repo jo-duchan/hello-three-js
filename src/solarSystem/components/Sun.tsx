@@ -11,8 +11,8 @@ const Sun = forwardRef<THREE.Mesh, Props>(function Sun(props, ref) {
     <mesh ref={ref} position={[0, 0, 0]}>
       <sphereGeometry args={[SOLAR_SYSTEM.sun.radius, 32, 32]} />
       <meshStandardMaterial
-        color="yellow"
-        emissive="yellow"
+        color="orangered"
+        emissive="orangered"
         emissiveIntensity={1.5}
       />
       {props.children}
