@@ -1,7 +1,8 @@
-const SCALE_SUN = 2;
-const SCALE_ORBIT = 500000; // 궤도 긴반지름을 더 크게 축소
+const SCALE_SUN = 5; // 태양의 크기 1/5
+const SCALE_ORBIT = 400000; // 궤도 긴반지름을 400,000배 축소
 const SCALE_PLANET = 1; // 행성 크기 비율
 const AU = 149597870; // 1AU = 149,597,870km
+const EARTH_SIZE = 12742; // 지구 지름 12,742km
 
 function genSolarSystemData(
   radius: number,
@@ -11,7 +12,7 @@ function genSolarSystemData(
   return {
     radius: radius / SCALE_PLANET,
     orbit: {
-      a: (semiMajorAxis * AU) / SCALE_ORBIT, // 궤도 긴반지름을 크게 축소
+      a: (semiMajorAxis * (AU - EARTH_SIZE)) / SCALE_ORBIT,
       e: eccentricity,
     },
   };
