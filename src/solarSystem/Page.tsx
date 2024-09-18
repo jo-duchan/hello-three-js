@@ -80,9 +80,10 @@ export default function SolarSystemPage() {
         uranus={uranusRef}
         neptune={neptuneRef}
       />
-      {planetView.active && (
-        <CameraController planetRef={planetView.planetView} />
-      )}
+      <CameraController
+        planetRef={planetView.planetView}
+        isPlanetView={planetView.active}
+      />
       <Sun>
         <Mercury
           ref={mercuryRef}
