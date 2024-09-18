@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 import * as THREE from "three";
 
 interface Props {
-  children?: React.ReactNode;
+  children?: React.ReactNode; // Scene graph를 만들기 위해, children을 옵셔널로 받아 local space를 생성한다.
   position: [number, number, number];
   radius: number;
   color: string;
