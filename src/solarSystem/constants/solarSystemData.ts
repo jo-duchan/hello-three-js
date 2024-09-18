@@ -1,6 +1,6 @@
 const SCALE_SUN = 2;
 const SCALE_ORBIT = 500000; // 궤도 긴반지름을 더 크게 축소
-const SCALE_PLANET = 1; // 행성 크기를 덜 축소
+const SCALE_PLANET = 1; // 행성 크기 비율
 const AU = 149597870; // 1AU = 149,597,870km
 
 function genSolarSystemData(
@@ -9,7 +9,7 @@ function genSolarSystemData(
   eccentricity: number
 ) {
   return {
-    radius: radius / SCALE_PLANET, // 행성 크기를 약간 줄임
+    radius: radius / SCALE_PLANET,
     orbit: {
       a: (semiMajorAxis * AU) / SCALE_ORBIT, // 궤도 긴반지름을 크게 축소
       e: eccentricity,
@@ -27,4 +27,4 @@ export const SOLAR_SYSTEM = {
   saturn: genSolarSystemData(9, 9.537, 0.0541),
   uranus: genSolarSystemData(4, 19.19, 0.0471),
   neptune: genSolarSystemData(3.9, 30.07, 0.0085),
-};
+} as const;
