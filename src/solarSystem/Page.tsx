@@ -90,48 +90,56 @@ export default function SolarSystemPage() {
           position={[SOLAR_SYSTEM.mercury.orbit.a, 0, 0]}
           radius={SOLAR_SYSTEM.mercury.radius}
           color="gray"
+          label="mercury"
         ></Mercury>
         <Venus
           ref={venusRef}
           position={[SOLAR_SYSTEM.venus.orbit.a, 0, 0]}
           radius={SOLAR_SYSTEM.venus.radius}
           color="orange"
+          label="venus"
         ></Venus>
         <Earth
           ref={earthRef}
           position={[SOLAR_SYSTEM.earth.orbit.a, 0, 0]}
           radius={SOLAR_SYSTEM.earth.radius}
           color="dodgerblue"
+          label="earth"
         ></Earth>
         <Mars
           ref={marsRef}
           position={[SOLAR_SYSTEM.mars.orbit.a, 0, 0]}
           radius={SOLAR_SYSTEM.mars.radius}
           color="lightsalmon"
+          label="mars"
         ></Mars>
         <Jupiter
           ref={jupiterRef}
           position={[SOLAR_SYSTEM.jupiter.orbit.a, 0, 0]}
           radius={SOLAR_SYSTEM.jupiter.radius}
           color="darksalmon"
+          label="jupiter"
         ></Jupiter>
         <Saturn
           ref={saturnRef}
           position={[SOLAR_SYSTEM.saturn.orbit.a, 0, 0]}
           radius={SOLAR_SYSTEM.saturn.radius}
           color="tan"
+          label="saturn"
         ></Saturn>
         <Uranus
           ref={uranusRef}
           position={[SOLAR_SYSTEM.uranus.orbit.a, 0, 0]}
           radius={SOLAR_SYSTEM.uranus.radius}
           color="slategray"
+          label="uranus"
         ></Uranus>
         <Neptune
           ref={neptuneRef}
           position={[SOLAR_SYSTEM.neptune.orbit.a, 0, 0]}
           radius={SOLAR_SYSTEM.neptune.radius}
           color="azure"
+          label="neptune"
         ></Neptune>
       </Sun>
     </Canvas>

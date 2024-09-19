@@ -1,5 +1,6 @@
 import { forwardRef } from "react";
 import * as THREE from "three";
+import Label from "./Label";
 
 interface Props {
   children?: React.ReactNode; // Scene graph를 만들기 위해, children을 옵셔널로 받아 local space를 생성한다.
@@ -8,6 +9,7 @@ interface Props {
   color: string;
   metalness?: number;
   roughness?: number;
+  label?: string;
 }
 
 const PlanetBase = forwardRef<THREE.Mesh, Props>(function PlanetBase(
@@ -24,6 +26,7 @@ const PlanetBase = forwardRef<THREE.Mesh, Props>(function PlanetBase(
         metalness={props.metalness}
         roughness={props.roughness}
       />
+      <Label label={props.label} />
       {props.children}
     </mesh>
   );
