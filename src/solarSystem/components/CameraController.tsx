@@ -28,14 +28,16 @@ function CameraController({ planetRef, isPlanetView }: Props) {
         initialCamera.lookAt.y,
         initialCamera.lookAt.z
       );
-    } else {
-      camera.position.set(
-        initialCamera.position.x,
-        initialCamera.position.y,
-        initialCamera.position.z
-      );
     }
   });
+
+  if (!isPlanetView) {
+    camera.position.set(
+      initialCamera.position.x,
+      initialCamera.position.y,
+      initialCamera.position.z
+    );
+  }
 
   return null;
 }
