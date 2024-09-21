@@ -10,8 +10,13 @@
 
 ### Chapter
 
-1. [Hello Three.js](https://www.notion.so/0033/Hello-Three-js-d407473b94314c38a2dc1698bf254539)
-2. [Camera](https://www.notion.so/0033/Camera-9b817ec1a8324ed8a049b9411e96c6fa)
-3. [Light](https://www.notion.so/0033/Light-774effa8b9094533aa9ddecd3c859c5f)
-4. [Geometry](https://0033.notion.site/Geometry-cd3b7e243ae54a108e8ddd253f9070a4)
-5. [Material](https://0033.notion.site/Material-b2780d053579474dba0677460cd750f2)
+1.  [Hello Three.js](https://0033.notion.site/Hello-Three-js-d407473b94314c38a2dc1698bf254539)
+2.  [Camera](https://0033.notion.site/Cameras-9b817ec1a8324ed8a049b9411e96c6fa)
+3.  [Light](https://0033.notion.site/Lights-774effa8b9094533aa9ddecd3c859c5f)
+4.  [Geometry](https://0033.notion.site/Geometry-cd3b7e243ae54a108e8ddd253f9070a4)
+5.  [Material](https://0033.notion.site/Material-b2780d053579474dba0677460cd750f2)
+6.  Textures
+7.  Shadows
+8.  Fog
+9.  Scene Graph
+10. [Solar System](https://0033.notion.site/Solar-System-67102320ef3841ddb52e85d7ef45f602)
