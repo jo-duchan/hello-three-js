@@ -23,6 +23,10 @@ const paths = {
     path: "/material",
     label: "Material",
   },
+  texture: {
+    path: "/texture",
+    label: "Texture",
+  },
   solarSystem: {
     path: "/solarSystem",
     label: "SolarSystem",

@@ -7,6 +7,7 @@ import CameraPage from "@/camera/Page";
 import LightPage from "@/light/Page";
 import GeometryPage from "@/geometry/Page";
 import MaterialPage from "@/material/Page";
+import TexturePage from "@/texture/Page";
 import SolarSystemPage from "@/solarSystem/Page";
 
 const routerInfo = [
@@ -33,6 +34,10 @@ const routerInfo = [
   {
     path: paths.material.path,
     element: <MaterialPage />,
+  },
+  {
+    path: paths.texture.path,
+    element: <TexturePage />,
   },
   {
     path: paths.solarSystem.path,
