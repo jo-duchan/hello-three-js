@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import paths from "./path";
 
 interface Props {
@@ -10,9 +10,18 @@ function SideNavigation() {
     <div className="side-container">
       <ul>
         {Object.entries(paths).map(([key, value]) => (
-          <Link key={key} to={value.path}>
+          <NavLink
+            key={key}
+            to={value.path}
+            style={({ isActive }) => {
+              return {
+                fontWeight: isActive ? "bold" : "400",
+                opacity: isActive ? "1" : "0.7",
+              };
+            }}
+          >
             {value.label}
-          </Link>
+          </NavLink>
         ))}
       </ul>
     </div>
