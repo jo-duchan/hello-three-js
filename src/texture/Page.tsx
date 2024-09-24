@@ -8,6 +8,11 @@ import MipmapConfigurator from "./components/MipmapConfigurator";
 import MipmapComparator from "./components/MipmapComparator";
 import GuideLine from "./components/GuideLine";
 
+import "./texture.css";
+
+export type MagOptionType = (typeof magOptions)[keyof typeof magOptions];
+export type MinOptionType = (typeof minOptions)[keyof typeof minOptions];
+
 export const magOptions = {
   LinearFilter: THREE.LinearFilter,
   NearestFilter: THREE.NearestFilter,

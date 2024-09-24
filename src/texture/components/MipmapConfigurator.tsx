@@ -3,11 +3,11 @@ import { useRef, useEffect } from "react";
 import { Mesh, TextureLoader } from "three";
 import { Box } from "@react-three/drei";
 import { useLoader } from "@react-three/fiber";
-import { magOptions, minOptions } from "../Page";
+import { MagOptionType, MinOptionType } from "../Page";
 
 interface Props {
-  magFilter: (typeof magOptions)[keyof typeof magOptions];
-  minFilter: (typeof minOptions)[keyof typeof minOptions];
+  magFilter: MagOptionType;
+  minFilter: MinOptionType;
 }
 
 function MipmapConfigurator({ magFilter, minFilter }: Props): JSX.Element {

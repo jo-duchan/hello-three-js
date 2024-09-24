@@ -1,0 +1,48 @@
+#leva__root select ~ [class*="leva-c"]:not(svg) {
+  display: block !important;
+  width: 100% !important;
+  padding-right: 30px;
+  line-height: var(--leva-sizes-rowHeight);
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  box-sizing: border-box !important;
+}
+
+.guide-line .divider {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  width: 4px;
+  height: 100dvh;
+  background-color: #2c8bf8;
+}
+
+.guide-line [class*="guide-wrapper"] {
+  position: absolute;
+  top: 100px;
+
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  .guide-text {
+    width: 500px;
+
+    b {
+      display: inline-block;
+      width: 80px;
+    }
+  }
+}
+
+.guide-line .left-guide-wrapper {
+  left: 0;
+}
+
+.guide-line .right-guide-wrapper {
+  right: 0;
+}
