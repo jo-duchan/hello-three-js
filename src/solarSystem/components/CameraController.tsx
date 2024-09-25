@@ -1,36 +1,41 @@
-import * as THREE from "three";
 import { useFrame, useThree } from "@react-three/fiber";
+import { useControls } from "leva";
 import { initialCamera } from "../constants/cameraData";
+import { type CelestialRefs } from "../hooks/useCelestialRefs";
 
 interface Props {
-  followPlanet: boolean;
-  lookAtPlanet: boolean;
-  planetRef: React.RefObject<
-    THREE.Mesh<
-      THREE.BufferGeometry<THREE.NormalBufferAttributes>,
-      THREE.Material | THREE.Material[],
-      THREE.Object3DEventMap
-    >
-  >;
-  zoom: number;
+  planets: CelestialRefs;
 }
 
-function CameraController({
-  planetRef,
-  followPlanet,
-  lookAtPlanet,
-  zoom,
-}: Props) {
+function CameraController({ planets }: Props) {
   const { camera } = useThree();
 
+  const followPlanet = useControls("Follow Planet", {
+    active: false,
+    lookAtPlanet: false,
+    planet: {
+      options: {
+        mercury: planets.mercuryRef,
+        venus: planets.venusRef,
+        earth: planets.earthRef,
+        mars: planets.marsRef,
+        jupiter: planets.jupiterRef,
+        saturn: planets.saturnRef,
+        uranus: planets.uranusRef,
+        neptune: planets.neptuneRef,
+      },
+    },
+    zoom: { value: 100, min: 0, max: 1000, step: 1 },
+  });
+
   useFrame(() => {
-    const current = planetRef?.current;
+    const current = followPlanet.planet?.current;
 
     if (followPlanet && current) {
       const cameraPosition = [
         current.position.x,
         current.position.y + 100,
-        current.position.z + zoom,
+        current.position.z + followPlanet.zoom,
       ];
 
       let cameraLookAt = [
@@ -39,7 +44,7 @@ function CameraController({
         initialCamera.lookAt.z,
       ];
 
-      if (lookAtPlanet) {
+      if (followPlanet.lookAtPlanet) {
         cameraLookAt = [
           current.position.x,
           current.position.y,
