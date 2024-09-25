@@ -31,7 +31,7 @@ function CameraController({ planets }: Props) {
   useFrame(() => {
     const current = followPlanet.planet?.current;
 
-    if (followPlanet && current) {
+    if (followPlanet.active && current) {
       const cameraPosition = [
         current.position.x,
         current.position.y + 100,
