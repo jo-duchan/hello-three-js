@@ -105,7 +105,7 @@ function CelestialBodies({ planets, satellites }: Props) {
         ref={planets.jupiterRef}
         position={[SOLAR_SYSTEM.jupiter.orbit.a, 0, 0]}
         radius={SOLAR_SYSTEM.jupiter.radius}
-        color="#D9B485"
+        color="#9C8C72"
         label="jupiter"
       >
         <Io
@@ -237,7 +237,7 @@ function CelestialBodies({ planets, satellites }: Props) {
           labelVisible={isSatelliteLabelVisible.visible}
         />
         <Titania
-          ref={satellites.titanRef}
+          ref={satellites.titaniaRef}
           position={[SOLAR_SYSTEM.titania.orbit.a, 0, 0]}
           radius={SOLAR_SYSTEM.titania.radius}
           color="#A9A9A9"
