@@ -51,21 +51,21 @@ function CelestialBodies({ planets, satellites }: Props) {
         ref={planets.mercuryRef}
         position={[SOLAR_SYSTEM.mercury.orbit.a, 0, 0]}
         radius={SOLAR_SYSTEM.mercury.radius}
-        color="gray"
+        color="#B0B0B0"
         label="mercury"
       ></Mercury>
       <Venus
         ref={planets.venusRef}
         position={[SOLAR_SYSTEM.venus.orbit.a, 0, 0]}
         radius={SOLAR_SYSTEM.venus.radius}
-        color="orange"
+        color="#E3C16F"
         label="venus"
       ></Venus>
       <Earth
         ref={planets.earthRef}
         position={[SOLAR_SYSTEM.earth.orbit.a, 0, 0]}
         radius={SOLAR_SYSTEM.earth.radius}
-        color="dodgerblue"
+        color="#2D68C4"
         label="earth"
       >
         <Moon
@@ -81,7 +81,7 @@ function CelestialBodies({ planets, satellites }: Props) {
         ref={planets.marsRef}
         position={[SOLAR_SYSTEM.mars.orbit.a, 0, 0]}
         radius={SOLAR_SYSTEM.mars.radius}
-        color="lightsalmon"
+        color="#D14B28"
         label="mars"
       >
         <Phobos
@@ -105,7 +105,7 @@ function CelestialBodies({ planets, satellites }: Props) {
         ref={planets.jupiterRef}
         position={[SOLAR_SYSTEM.jupiter.orbit.a, 0, 0]}
         radius={SOLAR_SYSTEM.jupiter.radius}
-        color="darksalmon"
+        color="#D9B485"
         label="jupiter"
       >
         <Io
@@ -145,7 +145,7 @@ function CelestialBodies({ planets, satellites }: Props) {
         ref={planets.saturnRef}
         position={[SOLAR_SYSTEM.saturn.orbit.a, 0, 0]}
         radius={SOLAR_SYSTEM.saturn.radius}
-        color="tan"
+        color="#F7C87D"
         label="saturn"
       >
         <Titan
@@ -209,7 +209,7 @@ function CelestialBodies({ planets, satellites }: Props) {
         ref={planets.uranusRef}
         position={[SOLAR_SYSTEM.uranus.orbit.a, 0, 0]}
         radius={SOLAR_SYSTEM.uranus.radius}
-        color="slategray"
+        color="#7FB0E0"
         label="uranus"
       >
         <Miranda
@@ -257,7 +257,7 @@ function CelestialBodies({ planets, satellites }: Props) {
         ref={planets.neptuneRef}
         position={[SOLAR_SYSTEM.neptune.orbit.a, 0, 0]}
         radius={SOLAR_SYSTEM.neptune.radius}
-        color="azure"
+        color="#3441D4"
         label="neptune"
       >
         <Triton
