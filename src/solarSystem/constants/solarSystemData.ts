@@ -1,14 +1,12 @@
-const SCALE_SUN = 5; // 태양의 크기 1/5
-const SCALE_ORBIT_PLANET = 300000; // 궤도 긴반지름을 300,000배 축소
-const SCALE_ORBIT_SATELLITE = 6000; // 궤도 긴반지름을 6,000배 축소
 const AU = 149597870; // 1AU = 149,597,870km
 const EARTH_SIZE = 12742; // 지구 지름 12,742km
+const SCALE = EARTH_SIZE; // SCALE 값을 지구 지름으로 설정
 
 function getOrbitalScale(celestialType?: "PLANET" | "SATELLITE"): number {
-  let scale = SCALE_ORBIT_PLANET;
+  let scale = SCALE * 3;
 
   if (celestialType === "SATELLITE") {
-    scale = SCALE_ORBIT_SATELLITE;
+    scale = SCALE;
   }
 
   return scale;
@@ -21,16 +19,16 @@ function genSolarSystemData(
   celestialType?: "PLANET" | "SATELLITE"
 ) {
   return {
-    radius: radius,
+    radius: (radius * EARTH_SIZE) / SCALE,
     orbit: {
-      a: (semiMajorAxis * (AU - EARTH_SIZE)) / getOrbitalScale(celestialType),
+      a: semiMajorAxis * (AU / getOrbitalScale(celestialType)),
       e: eccentricity,
     },
   };
 }
 
 export const SOLAR_SYSTEM = {
-  sun: genSolarSystemData(109 / SCALE_SUN, 0, 0),
+  sun: genSolarSystemData(109, 0, 0),
   mercury: genSolarSystemData(0.38, 0.387, 0.2056),
   venus: genSolarSystemData(0.95, 0.723, 0.0067),
   earth: genSolarSystemData(1, 1.0, 0.0167),
