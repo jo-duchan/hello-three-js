@@ -3,35 +3,56 @@ import { initialCamera } from "../constants/cameraData";
 import { type PlanetRef } from "../Page";
 
 interface Props {
-  isPlanetView: boolean;
+  followPlanet: boolean;
+  lookAtPlanet: boolean;
   planetRef: PlanetRef;
+  zoom: number;
 }
 
-function CameraController({ planetRef, isPlanetView }: Props) {
+function CameraController({
+  planetRef,
+  followPlanet,
+  lookAtPlanet,
+  zoom,
+}: Props) {
   const { camera } = useThree();
 
   useFrame(() => {
     const current = planetRef?.current;
 
-    if (isPlanetView && current) {
-      // 행성의 위치로 카메라 이동
-      // 행성에서 약간 떨어진 위치에 카메라 배치
-      camera.position.set(
+    if (followPlanet && current) {
+      const cameraPosition = [
         current.position.x,
         current.position.y + 100,
-        current.position.z + 100
-      );
+        current.position.z + zoom,
+      ];
 
-      // 카메라가 태양(0, 0, 0)을 바라보도록 설정
-      camera.lookAt(
+      let cameraLookAt = [
         initialCamera.lookAt.x,
         initialCamera.lookAt.y,
-        initialCamera.lookAt.z
+        initialCamera.lookAt.z,
+      ];
+
+      if (lookAtPlanet) {
+        cameraLookAt = [
+          current.position.x,
+          current.position.y,
+          current.position.z,
+        ];
+      }
+
+      // 행성의 위치로 카메라 이동
+      camera.position.set(
+        cameraPosition[0],
+        cameraPosition[1],
+        cameraPosition[2]
       );
+      // 카메라가 태양 또는 행성을 바라보도록 설정
+      camera.lookAt(cameraLookAt[0], cameraLookAt[1], cameraLookAt[2]);
     }
   });
 
-  if (!isPlanetView) {
+  if (!followPlanet) {
     camera.position.set(
       initialCamera.position.x,
       initialCamera.position.y,

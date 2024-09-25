@@ -1,57 +1,33 @@
-import { useRef } from "react";
-import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { useControls } from "leva";
-import { SOLAR_SYSTEM } from "./constants/solarSystemData";
 import { initialCamera } from "./constants/cameraData";
+import useCelestialRefs from "./hooks/useCelestialRefs";
 import PlanetOrbit from "./components/PlanetOrbit";
 import CameraController from "./components/CameraController";
+import AxesHelper from "./components/AxesHelper";
 import Light from "./components/Light";
-import Sun from "./components/Sun";
-import {
-  Venus,
-  Mercury,
-  Earth,
-  Mars,
-  Jupiter,
-  Saturn,
-  Uranus,
-  Neptune,
-} from "./components/PlanetBase";
-
-export type PlanetRef = React.RefObject<
-  THREE.Mesh<
-    THREE.BufferGeometry<THREE.NormalBufferAttributes>,
-    THREE.Material | THREE.Material[],
-    THREE.Object3DEventMap
-  >
->;
+import CelestialBodies from "./components/CelestialBodies";
 
 export default function SolarSystemPage() {
-  const mercuryRef = useRef<THREE.Mesh>(null);
-  const venusRef = useRef<THREE.Mesh>(null);
-  const earthRef = useRef<THREE.Mesh>(null);
-  const marsRef = useRef<THREE.Mesh>(null);
-  const jupiterRef = useRef<THREE.Mesh>(null);
-  const saturnRef = useRef<THREE.Mesh>(null);
-  const uranusRef = useRef<THREE.Mesh>(null);
-  const neptuneRef = useRef<THREE.Mesh>(null);
+  const { planets, satellites } = useCelestialRefs();
 
-  const planetView = useControls("planetView", {
+  const followPlanet = useControls("Follow Planet", {
     active: false,
-    planetView: {
+    lookAtPlanet: false,
+    planet: {
       options: {
-        mercury: mercuryRef,
-        venus: venusRef,
-        earth: earthRef,
-        mars: marsRef,
-        jupiter: jupiterRef,
-        saturn: saturnRef,
-        uranus: uranusRef,
-        neptune: neptuneRef,
+        mercury: planets.mercuryRef,
+        venus: planets.venusRef,
+        earth: planets.earthRef,
+        mars: planets.marsRef,
+        jupiter: planets.jupiterRef,
+        saturn: planets.saturnRef,
+        uranus: planets.uranusRef,
+        neptune: planets.neptuneRef,
       },
     },
+    zoom: { value: 100, min: 0, max: 1000, step: 1 },
   });
 
   return (
@@ -68,80 +44,16 @@ export default function SolarSystemPage() {
         far={initialCamera.far}
       />
       <OrbitControls enableZoom={true} />
-      <axesHelper args={[initialCamera.far]} position={[0, 0, 0]} />
+      <AxesHelper />
       <Light />
-      <PlanetOrbit
-        mercury={mercuryRef}
-        venus={venusRef}
-        earth={earthRef}
-        mars={marsRef}
-        jupiter={jupiterRef}
-        saturn={saturnRef}
-        uranus={uranusRef}
-        neptune={neptuneRef}
-      />
+      <PlanetOrbit {...planets} {...satellites} />
       <CameraController
-        planetRef={planetView.planetView}
-        isPlanetView={planetView.active}
+        planetRef={followPlanet.planet}
+        followPlanet={followPlanet.active}
+        lookAtPlanet={followPlanet.lookAtPlanet}
+        zoom={followPlanet.zoom}
       />
-      <Sun>
-        <Mercury
-          ref={mercuryRef}
-          position={[SOLAR_SYSTEM.mercury.orbit.a, 0, 0]}
-          radius={SOLAR_SYSTEM.mercury.radius}
-          color="gray"
-          label="mercury"
-        ></Mercury>
-        <Venus
-          ref={venusRef}
-          position={[SOLAR_SYSTEM.venus.orbit.a, 0, 0]}
-          radius={SOLAR_SYSTEM.venus.radius}
-          color="orange"
-          label="venus"
-        ></Venus>
-        <Earth
-          ref={earthRef}
-          position={[SOLAR_SYSTEM.earth.orbit.a, 0, 0]}
-          radius={SOLAR_SYSTEM.earth.radius}
-          color="dodgerblue"
-          label="earth"
-        ></Earth>
-        <Mars
-          ref={marsRef}
-          position={[SOLAR_SYSTEM.mars.orbit.a, 0, 0]}
-          radius={SOLAR_SYSTEM.mars.radius}
-          color="lightsalmon"
-          label="mars"
-        ></Mars>
-        <Jupiter
-          ref={jupiterRef}
-          position={[SOLAR_SYSTEM.jupiter.orbit.a, 0, 0]}
-          radius={SOLAR_SYSTEM.jupiter.radius}
-          color="darksalmon"
-          label="jupiter"
-        ></Jupiter>
-        <Saturn
-          ref={saturnRef}
-          position={[SOLAR_SYSTEM.saturn.orbit.a, 0, 0]}
-          radius={SOLAR_SYSTEM.saturn.radius}
-          color="tan"
-          label="saturn"
-        ></Saturn>
-        <Uranus
-          ref={uranusRef}
-          position={[SOLAR_SYSTEM.uranus.orbit.a, 0, 0]}
-          radius={SOLAR_SYSTEM.uranus.radius}
-          color="slategray"
-          label="uranus"
-        ></Uranus>
-        <Neptune
-          ref={neptuneRef}
-          position={[SOLAR_SYSTEM.neptune.orbit.a, 0, 0]}
-          radius={SOLAR_SYSTEM.neptune.radius}
-          color="azure"
-          label="neptune"
-        ></Neptune>
-      </Sun>
+      <CelestialBodies planets={planets} satellites={satellites} />
     </Canvas>
   );
 }
