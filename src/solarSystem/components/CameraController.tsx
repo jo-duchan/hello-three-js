@@ -1,11 +1,17 @@
+import * as THREE from "three";
 import { useFrame, useThree } from "@react-three/fiber";
 import { initialCamera } from "../constants/cameraData";
-import { type PlanetRef } from "../Page";
 
 interface Props {
   followPlanet: boolean;
   lookAtPlanet: boolean;
-  planetRef: PlanetRef;
+  planetRef: React.RefObject<
+    THREE.Mesh<
+      THREE.BufferGeometry<THREE.NormalBufferAttributes>,
+      THREE.Material | THREE.Material[],
+      THREE.Object3DEventMap
+    >
+  >;
   zoom: number;
 }
 
