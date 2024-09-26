@@ -13,6 +13,7 @@ function CameraController({ planets }: Props) {
   const followPlanet = useControls("Follow Planet", {
     active: false,
     lookAtPlanet: false,
+    trackingSun: true,
     planet: {
       options: {
         mercury: planets.mercuryRef,
@@ -26,6 +27,7 @@ function CameraController({ planets }: Props) {
       },
     },
     distance: { value: 200, min: 0, max: 1000, step: 1 }, // 행성에서의 거리
+    angle: { value: 0, min: 0, max: 360, step: 1 }, // 행성 주위의 각도
   });
 
   useFrame(() => {
@@ -38,18 +40,12 @@ function CameraController({ planets }: Props) {
 
     if (followPlanet.active && current) {
       const distance = followPlanet.distance; // 행성에서의 거리
+      const angleRad = (followPlanet.angle * Math.PI) / 180; // 각도를 라디안으로 변환
 
-      // 태양으로부터 행성의 벡터 계산
-      const dx = current.position.x - sunPosition.x;
-      const dz = current.position.z - sunPosition.z;
-
-      // 태양의 반대 방향으로 카메라 위치 설정
-      const angleToPlanet = Math.atan2(dz, dx); // 태양 반대편 각도
-
-      const cameraPosition = [
-        current.position.x + distance * Math.cos(angleToPlanet), // x축에서 카메라 위치 계산
-        current.position.y + 100, // 고정된 높이
-        current.position.z + distance * Math.sin(angleToPlanet), // z축에서 카메라 위치 계산
+      let cameraPosition = [
+        current.position.x + distance * Math.cos(angleRad),
+        current.position.y + 100,
+        current.position.z + distance * Math.sin(angleRad),
       ];
 
       let cameraLookAt = [
@@ -57,6 +53,21 @@ function CameraController({ planets }: Props) {
         initialCamera.lookAt.y,
         initialCamera.lookAt.z,
       ];
+
+      if (followPlanet.trackingSun) {
+        // 태양으로부터 행성의 벡터 계산
+        const dx = current.position.x - sunPosition.x;
+        const dz = current.position.z - sunPosition.z;
+
+        // 태양의 반대 방향으로 카메라 위치 설정
+        const angleToPlanet = Math.atan2(dz, dx); // 태양 반대편 각도
+
+        cameraPosition = [
+          current.position.x + distance * Math.cos(angleToPlanet), // x축에서 카메라 위치 계산
+          current.position.y + 100, // 고정된 높이
+          current.position.z + distance * Math.sin(angleToPlanet), // z축에서 카메라 위치 계산
+        ];
+      }
 
       if (followPlanet.lookAtPlanet) {
         cameraLookAt = [
