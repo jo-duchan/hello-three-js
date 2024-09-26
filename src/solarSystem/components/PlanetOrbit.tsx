@@ -7,9 +7,8 @@ import { type CelestialRefs } from "../hooks/useCelestialRefs";
 interface Props extends CelestialRefs {}
 
 function PlanetOrbit(props: Props) {
-  console.log(props);
   const timeScale = useControls("Time Scale", {
-    time: { value: 15, min: 0.1, max: 50, step: 0.1 },
+    time: { value: 1, min: 0.1, max: 50, step: 0.1 },
   });
 
   useFrame(() => {
@@ -25,6 +24,7 @@ function PlanetOrbit(props: Props) {
         const theta = getTheta(time, a);
         const orbitRadius = getOrbitRadius(a, e, theta);
 
+        // 행성의 새로운 위치 계산
         current.position.x = orbitRadius * Math.cos(theta);
         current.position.z = orbitRadius * Math.sin(theta);
       }
