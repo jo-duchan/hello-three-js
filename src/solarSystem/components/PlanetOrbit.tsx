@@ -21,7 +21,10 @@ function PlanetOrbit(props: Props) {
 
       if (current && current.position) {
         const { a, e } = SOLAR_SYSTEM[key as keyof typeof SOLAR_SYSTEM].orbit;
-        const theta = getTheta(time, a);
+        const celestialType =
+          SOLAR_SYSTEM[key as keyof typeof SOLAR_SYSTEM].celestialType;
+
+        const theta = getTheta(time, a, celestialType);
         const orbitRadius = getOrbitRadius(a, e, theta);
 
         // 행성의 새로운 위치 계산

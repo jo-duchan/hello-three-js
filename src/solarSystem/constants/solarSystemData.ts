@@ -16,7 +16,7 @@ function genSolarSystemData(
   radius: number,
   semiMajorAxis: number,
   eccentricity: number,
-  celestialType?: "PLANET" | "SATELLITE"
+  celestialType: "PLANET" | "SATELLITE"
 ) {
   return {
     radius: (radius * EARTH_SIZE) / SCALE,
@@ -24,19 +24,20 @@ function genSolarSystemData(
       a: semiMajorAxis * (AU / getOrbitalScale(celestialType)),
       e: eccentricity,
     },
+    celestialType: celestialType,
   };
 }
 
 export const SOLAR_SYSTEM = {
-  sun: genSolarSystemData(109, 0, 0),
-  mercury: genSolarSystemData(0.38, 0.387, 0.2056),
-  venus: genSolarSystemData(0.95, 0.723, 0.0067),
-  earth: genSolarSystemData(1, 1.0, 0.0167),
-  mars: genSolarSystemData(0.53, 1.524, 0.0934),
-  jupiter: genSolarSystemData(11, 5.204, 0.0487),
-  saturn: genSolarSystemData(9, 9.537, 0.0541),
-  uranus: genSolarSystemData(4, 19.19, 0.0471),
-  neptune: genSolarSystemData(3.9, 30.07, 0.0085),
+  sun: genSolarSystemData(109, 0, 0, "PLANET"),
+  mercury: genSolarSystemData(0.38, 0.387, 0.2056, "PLANET"),
+  venus: genSolarSystemData(0.95, 0.723, 0.0067, "PLANET"),
+  earth: genSolarSystemData(1, 1.0, 0.0167, "PLANET"),
+  mars: genSolarSystemData(0.53, 1.524, 0.0934, "PLANET"),
+  jupiter: genSolarSystemData(11, 5.204, 0.0487, "PLANET"),
+  saturn: genSolarSystemData(9, 9.537, 0.0541, "PLANET"),
+  uranus: genSolarSystemData(4, 19.19, 0.0471, "PLANET"),
+  neptune: genSolarSystemData(3.9, 30.07, 0.0085, "PLANET"),
 
   // 위성
   moon: genSolarSystemData(0.273, 0.00257, 0.0549, "SATELLITE"),
