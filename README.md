@@ -15,7 +15,7 @@
 3.  [Light](https://0033.notion.site/Lights-774effa8b9094533aa9ddecd3c859c5f)
 4.  [Geometry](https://0033.notion.site/Geometry-cd3b7e243ae54a108e8ddd253f9070a4)
 5.  [Material](https://0033.notion.site/Material-b2780d053579474dba0677460cd750f2)
-6.  Textures
+6.  [Textures](https://0033.notion.site/Textures-790306c8bb504eb2996a34d0f7fd47d3)
 7.  Shadows
 8.  Fog
 9.  Scene Graph
