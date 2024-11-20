@@ -2,10 +2,10 @@ import { Html } from "@react-three/drei";
 
 interface Props {
   label?: string;
-  radius?: number;
+  diameter?: number;
 }
 
-function Label({ label, radius = 0 }: Props) {
+function Label({ label, diameter = 0 }: Props) {
   const wrapperStyled = {
     display: "flex",
     justifyContent: "center",
@@ -27,7 +27,7 @@ function Label({ label, radius = 0 }: Props) {
   return (
     <Html
       key={label}
-      position={[0, -radius - 0.5, 0]}
+      position={[0, -diameter - 0.5, 0]}
       style={{ ...wrapperStyled }}
     >
       <h6 style={{ ...labelStyled }}>{label}</h6>

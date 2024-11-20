@@ -14,8 +14,8 @@ function Caption() {
           margin: "initial",
         }}
       >
-        Scale: Sizes 12,742:1, Distances 38,226:1 (based on Earth's diameter and
-        1 AU).
+        Scale: Sizes 12,742:1, Distances 11,749:1 (based on Earth's diameter and
+        1 AU)
       </p>
     </div>
   );

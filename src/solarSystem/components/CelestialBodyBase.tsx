@@ -5,7 +5,7 @@ import Label from "./Label";
 interface Props {
   children?: React.ReactNode; // Scene graph를 만들기 위해, children을 옵셔널로 받아 local space를 생성한다.
   position: [number, number, number];
-  radius: number;
+  diameter: number;
   color: string;
   metalness?: number;
   roughness?: number;
@@ -17,7 +17,7 @@ const CelestialBodyBase = forwardRef<THREE.Mesh, Props>(
   function CelestialBodyBase({ labelVisible = true, ...props }, ref) {
     return (
       <mesh ref={ref} position={props.position}>
-        <sphereGeometry args={[props.radius, 32, 32]} />
+        <sphereGeometry args={[props.diameter, 32, 32]} />
         <meshStandardMaterial
           color={props.color}
           emissive={props.color}
@@ -25,7 +25,9 @@ const CelestialBodyBase = forwardRef<THREE.Mesh, Props>(
           metalness={props.metalness}
           roughness={props.roughness}
         />
-        {labelVisible && <Label label={props.label} radius={props.radius} />}
+        {labelVisible && (
+          <Label label={props.label} diameter={props.diameter} />
+        )}
         {props.children}
       </mesh>
     );

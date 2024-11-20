@@ -50,28 +50,28 @@ function CelestialBodies({ planets, satellites }: Props) {
       <Mercury
         ref={planets.mercuryRef}
         position={[SOLAR_SYSTEM.mercury.orbit.a, 0, 0]}
-        radius={SOLAR_SYSTEM.mercury.radius}
+        diameter={SOLAR_SYSTEM.mercury.diameter}
         color="#B0B0B0"
         label="mercury"
       ></Mercury>
       <Venus
         ref={planets.venusRef}
         position={[SOLAR_SYSTEM.venus.orbit.a, 0, 0]}
-        radius={SOLAR_SYSTEM.venus.radius}
+        diameter={SOLAR_SYSTEM.venus.diameter}
         color="#E3C16F"
         label="venus"
       ></Venus>
       <Earth
         ref={planets.earthRef}
         position={[SOLAR_SYSTEM.earth.orbit.a, 0, 0]}
-        radius={SOLAR_SYSTEM.earth.radius}
+        diameter={SOLAR_SYSTEM.earth.diameter}
         color="#2D68C4"
         label="earth"
       >
         <Moon
           ref={satellites.moonRef}
           position={[SOLAR_SYSTEM.moon.orbit.a, 0, 0]}
-          radius={SOLAR_SYSTEM.moon.radius}
+          diameter={SOLAR_SYSTEM.moon.diameter}
           color="#C0C0C0"
           label="moon"
           labelVisible={isSatelliteLabelVisible.visible}
@@ -80,14 +80,14 @@ function CelestialBodies({ planets, satellites }: Props) {
       <Mars
         ref={planets.marsRef}
         position={[SOLAR_SYSTEM.mars.orbit.a, 0, 0]}
-        radius={SOLAR_SYSTEM.mars.radius}
+        diameter={SOLAR_SYSTEM.mars.diameter}
         color="#D14B28"
         label="mars"
       >
         <Phobos
           ref={satellites.phobosRef}
           position={[SOLAR_SYSTEM.phobos.orbit.a, 0, 0]}
-          radius={SOLAR_SYSTEM.phobos.radius}
+          diameter={SOLAR_SYSTEM.phobos.diameter}
           color="#7A7A7A"
           label="phobos"
           labelVisible={isSatelliteLabelVisible.visible}
@@ -95,7 +95,7 @@ function CelestialBodies({ planets, satellites }: Props) {
         <Deimos
           ref={satellites.deimosRef}
           position={[SOLAR_SYSTEM.deimos.orbit.a, 0, 0]}
-          radius={SOLAR_SYSTEM.deimos.radius}
+          diameter={SOLAR_SYSTEM.deimos.diameter}
           color="#8C8C8C"
           label="deimos"
           labelVisible={isSatelliteLabelVisible.visible}
@@ -104,14 +104,14 @@ function CelestialBodies({ planets, satellites }: Props) {
       <Jupiter
         ref={planets.jupiterRef}
         position={[SOLAR_SYSTEM.jupiter.orbit.a, 0, 0]}
-        radius={SOLAR_SYSTEM.jupiter.radius}
+        diameter={SOLAR_SYSTEM.jupiter.diameter}
         color="#9C8C72"
         label="jupiter"
       >
         <Io
           ref={satellites.ioRef}
           position={[SOLAR_SYSTEM.io.orbit.a, 0, 0]}
-          radius={SOLAR_SYSTEM.io.radius}
+          diameter={SOLAR_SYSTEM.io.diameter}
           color="#FFD700"
           label="io"
           labelVisible={isSatelliteLabelVisible.visible}
@@ -119,7 +119,7 @@ function CelestialBodies({ planets, satellites }: Props) {
         <Europa
           ref={satellites.europaRef}
           position={[SOLAR_SYSTEM.enceladus.orbit.a, 0, 0]}
-          radius={SOLAR_SYSTEM.europa.radius}
+          diameter={SOLAR_SYSTEM.europa.diameter}
           color="#B0C4DE"
           label="europa"
           labelVisible={isSatelliteLabelVisible.visible}
@@ -127,7 +127,7 @@ function CelestialBodies({ planets, satellites }: Props) {
         <Ganymede
           ref={satellites.ganymedeRef}
           position={[SOLAR_SYSTEM.ganymede.orbit.a, 0, 0]}
-          radius={SOLAR_SYSTEM.ganymede.radius}
+          diameter={SOLAR_SYSTEM.ganymede.diameter}
           color="#A9A9A9"
           label="ganymede"
           labelVisible={isSatelliteLabelVisible.visible}
@@ -135,7 +135,7 @@ function CelestialBodies({ planets, satellites }: Props) {
         <Callisto
           ref={satellites.callistoRef}
           position={[SOLAR_SYSTEM.callisto.orbit.a, 0, 0]}
-          radius={SOLAR_SYSTEM.callisto.radius}
+          diameter={SOLAR_SYSTEM.callisto.diameter}
           color="#808080"
           label="callisto"
           labelVisible={isSatelliteLabelVisible.visible}
@@ -144,14 +144,14 @@ function CelestialBodies({ planets, satellites }: Props) {
       <Saturn
         ref={planets.saturnRef}
         position={[SOLAR_SYSTEM.saturn.orbit.a, 0, 0]}
-        radius={SOLAR_SYSTEM.saturn.radius}
+        diameter={SOLAR_SYSTEM.saturn.diameter}
         color="#F7C87D"
         label="saturn"
       >
         <Titan
           ref={satellites.titanRef}
           position={[SOLAR_SYSTEM.titan.orbit.a, 0, 0]}
-          radius={SOLAR_SYSTEM.titan.radius}
+          diameter={SOLAR_SYSTEM.titan.diameter}
           color="#D2B48C"
           label="titan"
           labelVisible={isSatelliteLabelVisible.visible}
@@ -159,7 +159,7 @@ function CelestialBodies({ planets, satellites }: Props) {
         <Enceladus
           ref={satellites.enceladusRef}
           position={[SOLAR_SYSTEM.enceladus.orbit.a, 0, 0]}
-          radius={SOLAR_SYSTEM.enceladus.radius}
+          diameter={SOLAR_SYSTEM.enceladus.diameter}
           color="#FFFFFF"
           label="enceladus"
           labelVisible={isSatelliteLabelVisible.visible}
@@ -167,7 +167,7 @@ function CelestialBodies({ planets, satellites }: Props) {
         <Mimas
           ref={satellites.mimasRef}
           position={[SOLAR_SYSTEM.mimas.orbit.a, 0, 0]}
-          radius={SOLAR_SYSTEM.mimas.radius}
+          diameter={SOLAR_SYSTEM.mimas.diameter}
           color="#C0C0C0"
           label="mimas"
           labelVisible={isSatelliteLabelVisible.visible}
@@ -175,7 +175,7 @@ function CelestialBodies({ planets, satellites }: Props) {
         <Dione
           ref={satellites.dioneRef}
           position={[SOLAR_SYSTEM.dione.orbit.a, 0, 0]}
-          radius={SOLAR_SYSTEM.dione.radius}
+          diameter={SOLAR_SYSTEM.dione.diameter}
           color="#A9A9A9"
           label="dione"
           labelVisible={isSatelliteLabelVisible.visible}
@@ -183,7 +183,7 @@ function CelestialBodies({ planets, satellites }: Props) {
         <Rhea
           ref={satellites.rheaRef}
           position={[SOLAR_SYSTEM.rhea.orbit.a, 0, 0]}
-          radius={SOLAR_SYSTEM.rhea.radius}
+          diameter={SOLAR_SYSTEM.rhea.diameter}
           color="#D3D3D3"
           label="rhea"
           labelVisible={isSatelliteLabelVisible.visible}
@@ -191,7 +191,7 @@ function CelestialBodies({ planets, satellites }: Props) {
         <Tethys
           ref={satellites.tethysRef}
           position={[SOLAR_SYSTEM.tethys.orbit.a, 0, 0]}
-          radius={SOLAR_SYSTEM.tethys.radius}
+          diameter={SOLAR_SYSTEM.tethys.diameter}
           color="#F0F8FF"
           label="tethys"
           labelVisible={isSatelliteLabelVisible.visible}
@@ -199,7 +199,7 @@ function CelestialBodies({ planets, satellites }: Props) {
         <Iapetus
           ref={satellites.iapetusRef}
           position={[SOLAR_SYSTEM.iapetus.orbit.a, 0, 0]}
-          radius={SOLAR_SYSTEM.iapetus.radius}
+          diameter={SOLAR_SYSTEM.iapetus.diameter}
           color="#4B0082"
           label="iapetus"
           labelVisible={isSatelliteLabelVisible.visible}
@@ -208,14 +208,14 @@ function CelestialBodies({ planets, satellites }: Props) {
       <Uranus
         ref={planets.uranusRef}
         position={[SOLAR_SYSTEM.uranus.orbit.a, 0, 0]}
-        radius={SOLAR_SYSTEM.uranus.radius}
+        diameter={SOLAR_SYSTEM.uranus.diameter}
         color="#7FB0E0"
         label="uranus"
       >
         <Miranda
           ref={satellites.mirandaRef}
           position={[SOLAR_SYSTEM.miranda.orbit.a, 0, 0]}
-          radius={SOLAR_SYSTEM.miranda.radius}
+          diameter={SOLAR_SYSTEM.miranda.diameter}
           color="#D3D3D3"
           label="miranda"
           labelVisible={isSatelliteLabelVisible.visible}
@@ -223,7 +223,7 @@ function CelestialBodies({ planets, satellites }: Props) {
         <Ariel
           ref={satellites.arielRef}
           position={[SOLAR_SYSTEM.ariel.orbit.a, 0, 0]}
-          radius={SOLAR_SYSTEM.ariel.radius}
+          diameter={SOLAR_SYSTEM.ariel.diameter}
           color="#B0C4DE"
           label="ariel"
           labelVisible={isSatelliteLabelVisible.visible}
@@ -231,7 +231,7 @@ function CelestialBodies({ planets, satellites }: Props) {
         <Umbriel
           ref={satellites.umbrielRef}
           position={[SOLAR_SYSTEM.umbriel.orbit.a, 0, 0]}
-          radius={SOLAR_SYSTEM.umbriel.radius}
+          diameter={SOLAR_SYSTEM.umbriel.diameter}
           color="#2F4F4F"
           label="umbriel"
           labelVisible={isSatelliteLabelVisible.visible}
@@ -239,7 +239,7 @@ function CelestialBodies({ planets, satellites }: Props) {
         <Titania
           ref={satellites.titaniaRef}
           position={[SOLAR_SYSTEM.titania.orbit.a, 0, 0]}
-          radius={SOLAR_SYSTEM.titania.radius}
+          diameter={SOLAR_SYSTEM.titania.diameter}
           color="#A9A9A9"
           label="titania"
           labelVisible={isSatelliteLabelVisible.visible}
@@ -247,7 +247,7 @@ function CelestialBodies({ planets, satellites }: Props) {
         <Oberon
           ref={satellites.oberonRef}
           position={[SOLAR_SYSTEM.oberon.orbit.a, 0, 0]}
-          radius={SOLAR_SYSTEM.oberon.radius}
+          diameter={SOLAR_SYSTEM.oberon.diameter}
           color="#778899"
           label="oberon"
           labelVisible={isSatelliteLabelVisible.visible}
@@ -256,14 +256,14 @@ function CelestialBodies({ planets, satellites }: Props) {
       <Neptune
         ref={planets.neptuneRef}
         position={[SOLAR_SYSTEM.neptune.orbit.a, 0, 0]}
-        radius={SOLAR_SYSTEM.neptune.radius}
+        diameter={SOLAR_SYSTEM.neptune.diameter}
         color="#3441D4"
         label="neptune"
       >
         <Triton
           ref={satellites.tritonRef}
           position={[SOLAR_SYSTEM.triton.orbit.a, 0, 0]}
-          radius={SOLAR_SYSTEM.triton.radius}
+          diameter={SOLAR_SYSTEM.triton.diameter}
           color="#ADD8E6"
           label="triton"
           labelVisible={isSatelliteLabelVisible.visible}
@@ -271,7 +271,7 @@ function CelestialBodies({ planets, satellites }: Props) {
         <Nereid
           ref={satellites.nereidRef}
           position={[SOLAR_SYSTEM.nereid.orbit.a, 0, 0]}
-          radius={SOLAR_SYSTEM.nereid.radius}
+          diameter={SOLAR_SYSTEM.nereid.diameter}
           color="#B0C4DE"
           label="nereid"
           labelVisible={isSatelliteLabelVisible.visible}
@@ -279,7 +279,7 @@ function CelestialBodies({ planets, satellites }: Props) {
         <Proteus
           ref={satellites.proteusRef}
           position={[SOLAR_SYSTEM.proteus.orbit.a, 0, 0]}
-          radius={SOLAR_SYSTEM.proteus.radius}
+          diameter={SOLAR_SYSTEM.proteus.diameter}
           color="#696969"
           label="proteus"
           labelVisible={isSatelliteLabelVisible.visible}
