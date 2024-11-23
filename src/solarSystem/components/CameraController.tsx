@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useControls } from "leva";
 import { initialCamera } from "../constants/cameraData";
@@ -9,26 +10,39 @@ interface Props {
 
 function CameraController({ planets }: Props) {
   const { camera } = useThree();
+  const [angleActive, setAngleActive] = useState(false);
 
-  const followPlanet = useControls("Follow Planet", {
-    active: false,
-    lookAtPlanet: false,
-    trackingSun: true,
-    planet: {
-      options: {
-        mercury: planets.mercuryRef,
-        venus: planets.venusRef,
-        earth: planets.earthRef,
-        mars: planets.marsRef,
-        jupiter: planets.jupiterRef,
-        saturn: planets.saturnRef,
-        uranus: planets.uranusRef,
-        neptune: planets.neptuneRef,
+  const followPlanet = useControls(
+    "Follow Planet",
+    {
+      active: false,
+      lookAt: {
+        options: {
+          sun: "sun",
+          planet: "planet",
+        },
       },
+      planet: {
+        options: {
+          mercury: planets.mercuryRef,
+          venus: planets.venusRef,
+          earth: planets.earthRef,
+          mars: planets.marsRef,
+          jupiter: planets.jupiterRef,
+          saturn: planets.saturnRef,
+          uranus: planets.uranusRef,
+          neptune: planets.neptuneRef,
+        },
+      },
+      distance: { value: 200, min: 0, max: 1000, step: 1 }, // 행성에서의 거리
+      angle: { value: 0, min: 0, max: 360, step: 1, disabled: angleActive }, // 행성 주위의 각도
     },
-    distance: { value: 200, min: 0, max: 1000, step: 1 }, // 행성에서의 거리
-    angle: { value: 0, min: 0, max: 360, step: 1 }, // 행성 주위의 각도
-  });
+    [angleActive]
+  );
+
+  useEffect(() => {
+    setAngleActive(followPlanet.lookAt !== "planet");
+  }, [followPlanet.lookAt]);
 
   useFrame(() => {
     const current = followPlanet.planet?.current;
@@ -54,7 +68,7 @@ function CameraController({ planets }: Props) {
         initialCamera.lookAt.z,
       ];
 
-      if (followPlanet.trackingSun) {
+      if (followPlanet.lookAt === "sun") {
         // 태양으로부터 행성의 벡터 계산
         const dx = current.position.x - sunPosition.x;
         const dz = current.position.z - sunPosition.z;
@@ -69,7 +83,7 @@ function CameraController({ planets }: Props) {
         ];
       }
 
-      if (followPlanet.lookAtPlanet) {
+      if (followPlanet.lookAt === "planet") {
         cameraLookAt = [
           current.position.x,
           current.position.y,
