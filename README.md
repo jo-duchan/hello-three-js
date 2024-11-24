@@ -19,4 +19,4 @@
 7.  Shadows
 8.  Fog
 9.  Scene Graph
-10. [Solar System](https://0033.notion.site/Solar-System-67102320ef3841ddb52e85d7ef45f602)
+10. [Solar System](https://medium.com/@duchanjo/three-js로-만드는-태양계-시뮬레이션-89f546c70791)
