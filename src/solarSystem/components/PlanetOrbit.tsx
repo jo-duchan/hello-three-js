@@ -4,9 +4,7 @@ import { SOLAR_SYSTEM } from "../constants/solarSystemData";
 import { getTheta, getOrbitRadius } from "../utils/orbit-utils";
 import { type CelestialRefs } from "../hooks/useCelestialRefs";
 
-interface Props extends CelestialRefs {}
-
-function PlanetOrbit(props: Props) {
+function PlanetOrbit(props: CelestialRefs) {
   const timeScale = useControls("Time Scale", {
     time: { value: 15, min: 0.1, max: 50, step: 0.1 },
   });
