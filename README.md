@@ -6,7 +6,7 @@
 
 ### Live Demo
 
-[데모 사이트 링크](https://jo-duchan.github.io/hello-three-js/)
+[데모 사이트 링크](https://jo-duchan.github.io/hello-three-js/#/solarSystem)
 
 ### Chapter
 
